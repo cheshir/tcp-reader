@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/cheshir/tcp-reader.svg?branch=master)](https://travis-ci.org/cheshir/tcp-reader)
+
 # About
 
 This app creates server that listen on the specified port and prints all incoming messages to the stdout.
