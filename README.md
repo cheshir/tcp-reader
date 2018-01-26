@@ -18,16 +18,12 @@ With default settings:
 tcp-reader
 ```
 
-Set port:
+For example we're going to read error and panic messages only:
 
 ```bash
-tcp-reader -port=9999
+tcp-reader -host=localhost -port=9999 -prefix=">>> " -filter="(error|panic)"
 ```
 
-Filter messages by regexp (supports [golang regexp syntax](https://golang.org/pkg/regexp/syntax/)):
-
-```bash
-tcp-reader -filter=mask
-```
+Filter supports [golang regexp syntax](https://golang.org/pkg/regexp/syntax/)).
 
 Matched substrings would be highlighted if TERM environment variable is set.

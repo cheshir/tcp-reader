@@ -17,14 +17,16 @@ func main() {
 	host := flag.String("host", "localhost", "Server host")
 	port := flag.String("port", "6676", "Server port")
 	filter := flag.String("filter", "", "Regexp for filtering")
+	prefix := flag.String("prefix", ">>> ", "System message prefix")
 	flag.Parse()
 
-	address := *host + ":" + *port
+	log.SetPrefix(*prefix)
 
-	log.Println(">>> Start listen on:", address)
+	address := *host + ":" + *port
+	log.Println("Start listen on:", address)
 	listener, err := net.Listen("tcp", address)
 	if err != nil {
-		log.Panic(">>> Couldn't create server on " + address)
+		log.Panic("Couldn't create server on " + address)
 	}
 
 	output := newOutput(os.Stdout, newFilter(*filter))
@@ -32,7 +34,7 @@ func main() {
 	for {
 		conn, err := listener.Accept()
 		if err != nil {
-			log.Println(">>> Couldn't accept connection:", err)
+			log.Println("Couldn't accept connection:", err)
 		}
 
 		go handleConnection(conn, output)
@@ -46,12 +48,12 @@ func handleConnection(conn net.Conn, output io.Writer) {
 		message, err := reader.ReadBytes('\n')
 		if err != nil {
 			if err == io.EOF {
-				log.Println(">>> Client was disconected")
+				log.Println("Client was disconected")
 
 				return
 			}
 
-			log.Println(">>> Couldn't read message:", err)
+			log.Println("Couldn't read message:", err)
 		}
 
 		output.Write(message)
