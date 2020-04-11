@@ -5,13 +5,25 @@
 
 This app creates server that listen on the specified port and prints all incoming messages to the stdout.
 
+Default configuration: 
+
+```bash
+tcp-reader -host=localhost -port=9999 -prefix=">>> "
+```
+
 All internal messages is prefixed by `>>>`.
 
 Messages delimiter: `\n`.
 
 # Install
 
-`go get github.com/cheshir/tcp-reader`
+For everyone:
+
+`curl -sf https://gobinaries.com/cheshir/tcp-reader | sh`
+
+For go users:
+
+`go get -u github.com/cheshir/tcp-reader`
 
 # Usage
 
