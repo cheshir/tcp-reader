@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/cheshir/tcp-reader.svg?branch=master)](https://travis-ci.org/cheshir/tcp-reader)
+[![Build Status](https://travis-ci.com/cheshir/tcp-reader.svg?branch=master)](https://travis-ci.com/cheshir/tcp-reader)
 [![Go Report Card](https://goreportcard.com/badge/github.com/cheshir/tcp-reader)](https://goreportcard.com/report/github.com/cheshir/tcp-reader)
 
 # About
